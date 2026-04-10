@@ -10,19 +10,19 @@ header {
     grid-row: 1;
     z-index: 1;
     display:flex;
+    justify-content: space-between;
     align-items: flex-start;
     pointer-events: none;
 }
 
 nav {
     font-size: 1.25rem;
-    grid-column: 4 / -2;
-    grid-row: 1;
     display: flex;
-    align-self: flex-start;
     padding-top: 2rem;
     gap: 2.5rem;
+    margin-right: 1rem;
     z-index: 1;
+    pointer-events: auto;
 }
 
 #hero {
