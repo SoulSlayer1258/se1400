@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" >
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Route Mapper Create</title>
+    <link rel="stylesheet" href="create.css">
+</head>
+
+<body>
+    <header>
+            <h1>Route <br> Mapper</h1>
+            <button id="dark-toggle">Dark</button>
+            <button id="hamburger" >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="main-nav">
+                <a href="index.html">Home</a>
+                <a href="explore.html">Explore</a>
+                <a href="routes.html">Routes</a>
+                <a href="create.html">Create</a>
+                <a href="saved.html">Saved</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+    </header>
+
+    <footer>
+        <p>Elijah Feldbauer copyright 2026 Route Mapper</p>
+    </footer>
+
+    <script>
+    const hamburger = document.querySelector('#hamburger');
+    const mainNav = document.querySelector('#main-nav');
+    hamburger.addEventListener('click', function() {
+        mainNav.classList.toggle('open');
+        hamburger.classList.toggle('open');
+    });
+
+    const darkToggle = document.querySelector('#dark-toggle')
+    darkToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark');
+        darkToggle.textContent = document.body.classList.contains('dark')
+        ? 'Light'
+        : 'dark';
+    });
+</script>
+</body>

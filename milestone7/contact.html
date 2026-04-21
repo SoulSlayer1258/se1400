@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" >
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Route Mapper Contact</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+    <header>
+            <h1>Route <br> Mapper</h1>
+            <button id="dark-toggle">Dark</button>
+            <button id="hamburger" >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="main-nav">
+                <a href="index.html">Home</a>
+                <a href="explore.html">Explore</a>
+                <a href="routes.html">Routes</a>
+                <a href="create.html">Create</a>
+                <a href="saved.html">Saved</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+    </header>
+
+    <main>
+        <h2>Have a Question, Comment, or Concern?</h2>
+        <p>Contact us: <br> routemapper@example.com <br> 555-555-5555 <br> or use this form to send a message</p>
+    </main>
+
+    <form>
+        <fieldset>
+            <legend>personal information</legend>
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name"
+                autocomplete="given-name"
+                required>
+            </div>
+             <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last-name"
+                               autocomplete="family-name"
+                               required>
+                               
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email"
+                               autocomplete="email"
+                               placeholder="you@example.com"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone"
+                               autocomplete="tel"
+                               placeholder="555-555-5555"
+                               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                               title="Format: 555-555-5555"
+                               required>
+                    </div>
+        </fieldset>
+        <fieldset>
+            <legend>Write your Feedback here</legend>
+                <div class="form-group">
+                    <textarea id="feedback" name="feedback" rows="4"
+                              placeholder="Tell us what we can do better"
+                              aria-describedby="feedback-hint"></textarea>
+                    <p id="feedback-hint">Mention anything about the website such as functionality or visuals</p>
+                </div>
+
+                <div id="form-feedback" class="form-feedback" hidden></div>
+
+                <button type="submit">Submit Application</button>
+                </fieldset>
+
+    </form>
+
+    <footer>
+        <p>Elijah Feldbauer copyright 2026 Route Mapper</p>
+    </footer>
+
+    <script>
+    const hamburger = document.querySelector('#hamburger');
+    const mainNav = document.querySelector('#main-nav');
+    hamburger.addEventListener('click', function() {
+        mainNav.classList.toggle('open');
+        hamburger.classList.toggle('open');
+    });
+
+    const darkToggle = document.querySelector('#dark-toggle')
+    darkToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark');
+        darkToggle.textContent = document.body.classList.contains('dark')
+        ? 'Light'
+        : 'dark';
+    });
+</script>
+</body>
