@@ -195,6 +195,7 @@ text-align: center;
         overflow: hidden;
         pointer-events: none;
         transition: max-height .3s ease, opacity .3s ease;
+        border-radius: 40px;
     }
 
     nav.open {
@@ -243,6 +244,19 @@ text-align: center;
 
     .cards {
         flex-direction: column;
+    }
+
+    nav {
+        font-size: 1rem;
+        padding: .75rem 1.5rem;
+    }
+
+    #hero h2 {
+        font-size: 1.4rem;
+    }
+
+    #hero input {
+        padding: .25rem;
     }
 
 }
