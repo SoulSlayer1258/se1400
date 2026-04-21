@@ -39,6 +39,13 @@ display: flex;
 align-items: center;
 flex-direction: column;
 }
+
+section {
+    grid-column: 2 / -2;
+display: flex;
+align-items: center;
+flex-direction: column;
+}
 footer {
 background-color: #AFA76C;
 grid-column: 1 / -1;
