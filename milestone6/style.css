@@ -253,10 +253,15 @@ text-align: center;
 
     #hero h2 {
         font-size: 1.4rem;
+        top: 40%;
     }
 
     #hero input {
         padding: .25rem;
+    }
+
+    ::placeholder {
+        font-size: .8rem;
     }
 
 }
