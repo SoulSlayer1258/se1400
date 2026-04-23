@@ -224,6 +224,30 @@ body.dark {
         background-color: #1a1a1a;
     }
 
+    body.dark #panel-close {
+        color: #f0f0f0;
+        background-color: #1a1a1a;
+    }
+
+    body.dark #delete {
+        color: #f0f0f0;
+        background-color: #1a1a1a;
+    }
+
+    body.dark #save {
+        color: #f0f0f0;
+        background-color: #1a1a1a;
+    }
+
+    body.dark #save.true {
+        color: #f0f0f0;
+        background-color: blue;
+    }
+
+    body.dark #create {
+        color: #f0f0f0;
+        background-color: #1a1a1a;
+    }
     @media (prefers-reduced-motion: reduce) {
     nav {
         transition: none;
