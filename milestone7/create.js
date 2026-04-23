@@ -13,12 +13,14 @@ const hamburger = document.querySelector('#hamburger');
         : 'dark';
     });
 
-    var map = L.map('map').setView([39.8283, -98.5795], 4);
+    var map = L.map('map', {zoomControl: false}).setView([39.8283, -98.5795], 4);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
 
     const panel = document.querySelector('#marker-panel');
 
@@ -38,6 +40,7 @@ const hamburger = document.querySelector('#hamburger');
         name: '',
         grade: '',
         description: '',
+        saved: false
     };
     markers.set(id, data);
 
@@ -96,6 +99,7 @@ function openPanel(marker, id) {
     updatePanelPosition(marker.getLatLng());
     panel.style.display = 'block';
     const data = markers.get(id);
+    document.querySelector('#save').classList.toggle('true', data.saved);
     document.querySelector('#marker-name').value = data.name || '';
     document.querySelector('#marker-grade').value = data.grade || '';
     document.querySelector('#marker-description').value = data.description || '';
@@ -118,13 +122,22 @@ function updatePanelPosition(latlng) {
     panel.style.top = (y + 10) + 'px';
 }
 
+document.querySelector('#save').addEventListener('click', function() {
+    if (activeMarker === null) return;
+    const data = markers.get(activeMarker);
+    data.saved = !data.saved;
+    document.querySelector('#save').classList.toggle('true');
+    saveMarkers();
+})
+
 function saveMarkers() {
     const data = Array.from(markers.values()).map(m => ({
         id: m.id,
         latlng: m.latlng,
         name: m.name,
         grade: m.grade,
-        description: m.description
+        description: m.description,
+        saved: m.saved
     }));
 
     localStorage.setItem("markers", JSON.stringify(data));
@@ -151,3 +164,7 @@ function loadMarkers(map, markers) {
 }
 
 loadMarkers(map, markers);
+
+document.querySelector('#help-toggle').addEventListener('click', function() {
+    document.querySelector('#help-panel').classList.toggle('hidden');
+})

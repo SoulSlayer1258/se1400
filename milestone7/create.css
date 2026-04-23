@@ -76,6 +76,36 @@ text-align: center;
     top: 65%;
 }
 
+#help-toggle {
+    align-self: flex-start;
+    margin-top: 1.75rem;
+    padding: .3rem .75rem;
+    cursor: pointer;
+    pointer-events: auto;
+    position: absolute;
+    top: 95%;
+}
+
+#help-panel {
+    align-self: flex-start;
+    font-size: .9rem;
+    z-index: 100;
+    position: absolute;
+    top: 18%;
+    left: 5%;
+    background-color: white;
+    border-radius: 15px;
+    padding: .5rem;
+}
+
+#help-panel p {
+    max-width: 45ch;
+}
+
+#help-panel.hidden{
+    display:none;
+}
+
 #map {
     width: 100%;
     height: 100%;
@@ -85,10 +115,14 @@ text-align: center;
 #marker-panel {
     position: fixed;
     z-index: 100;
-    background: white;
+    background-color: white;
     padding: .5rem;
     display: none;
     border-radius: 10px;
+}
+
+#save.true{
+    background-color: #ADD8E6;
 }
 
 
@@ -131,6 +165,10 @@ text-align: center;
         gap: 5px;
     }
 
+    #help-panel {
+
+    }
+
     body.dark nav {
         background-color: #1a1a1a;
     }
@@ -158,8 +196,8 @@ body.dark {
         color: #f0f0f0;
     }
 
-    body.dark header h1 {
-        color: #f0f0f0;
+   body.dark header h1 {
+        color: #1a1a1a;
     }
 
    body.dark  footer {
@@ -171,8 +209,19 @@ body.dark {
         background-color: #1a1a1a;
     }
 
-    body.dark #hamburger span{
-        background-color: #f0f0f0;
+    body.dark #marker-panel {
+        color: #f0f0f0;
+        background-color: #1a1a1a;
+    }
+
+    body.dark #help-panel {
+        color: #f0f0f0;
+        background-color: #1a1a1a;
+    }
+
+    body.dark #help-toggle {
+        color: #f0f0f0;
+        background-color: #1a1a1a;
     }
 
     @media (prefers-reduced-motion: reduce) {
