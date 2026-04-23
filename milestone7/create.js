@@ -34,6 +34,7 @@ const hamburger = document.querySelector('#hamburger');
     const data = {
         id,
         marker,
+        latlng: e.latlng,
         name: '',
         grade: '',
         description: '',
@@ -64,12 +65,13 @@ document.querySelector('#panel-close').addEventListener('click', function() {
 
 document.querySelector('#delete').addEventListener('click', function() {
     panel.style.display = 'none';
-    if (activeMarker) {
+    if (activeMarker !== null) {
         const data = markers.get(activeMarker);
         map.removeLayer(data.marker);
         markers.delete(activeMarker);
         activeMarker = null;
     }
+    saveMarkers();
 })
 
 document.querySelector('#create').addEventListener('click', function(event) {
@@ -86,6 +88,7 @@ document.querySelector('#create').addEventListener('click', function(event) {
     document.querySelector('#marker-name').value = '';
     document.querySelector('#marker-grade').value = '';
     document.querySelector('#marker-description').value = '';
+    saveMarkers();
 })
 
 function openPanel(marker, id) {
@@ -114,3 +117,37 @@ function updatePanelPosition(latlng) {
     panel.style.left = (x + 10) + 'px';
     panel.style.top = (y + 10) + 'px';
 }
+
+function saveMarkers() {
+    const data = Array.from(markers.values()).map(m => ({
+        id: m.id,
+        latlng: m.latlng,
+        name: m.name,
+        grade: m.grade,
+        description: m.description
+    }));
+
+    localStorage.setItem("markers", JSON.stringify(data));
+}
+
+function loadMarkers(map, markers) {
+    const saved = localStorage.getItem('markers');
+    if (!saved) return;
+
+    const data = JSON.parse(saved);
+
+    data.forEach(m => {
+        const marker = L.marker(m.latlng).addTo(map);
+
+        markers.set(m.id, {
+            ...m,
+            marker
+        });
+
+        attachMarkerEvents(marker, m.id);
+    })
+
+    markerCount = data.length;
+}
+
+loadMarkers(map, markers);
