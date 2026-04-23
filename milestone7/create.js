@@ -13,8 +13,6 @@ const hamburger = document.querySelector('#hamburger');
         : 'dark';
     });
 
-
-    const panel = document.querySelector('#marker-panel');
     var map = L.map('map').setView([39.8283, -98.5795], 4);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -22,13 +20,25 @@ const hamburger = document.querySelector('#hamburger');
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    let activeMarker = '';
+    const panel = document.querySelector('#marker-panel');
+
+    let activeMarker = null;
+    const markers = new Map();
+    let markerCount = 0;
 
     map.on('click', function(e) {
-    activeMarker = L.marker(e.latlng).addTo(map);
+    const id = markerCount++;
+    const marker = L.marker(e.latlng).addTo(map);
     const point = map.latLngToContainerPoint(e.latlng);
     const rect = map.getContainer().getBoundingClientRect();
-
+    const data = {
+        id,
+        marker,
+        name: '',
+        grade: '',
+        description: '',
+    };
+    markers.set(id, data);
 
     const x = rect.left + point.x;
     const y = rect.top + point.y;
@@ -36,13 +46,71 @@ const hamburger = document.querySelector('#hamburger');
     panel.style.left = x + 'px';
     panel.style.top = y + 'px';
     panel.style.display = 'block';
+
+    activeMarker = id;
+
+    attachMarkerEvents(marker, id);
+    openPanel(marker, id);
 });
 
 document.querySelector('#panel-close').addEventListener('click', function() {
     panel.style.display = 'none';
-    map.removeLayer(activeMarker);
+    activeMarker = null;
+    document.querySelector('#marker-name').value = '';
+    document.querySelector('#marker-grade').value = '';
+    document.querySelector('#marker-description').value = '';
+    }
+)
+
+document.querySelector('#delete').addEventListener('click', function() {
+    panel.style.display = 'none';
+    if (activeMarker) {
+        const data = markers.get(activeMarker);
+        map.removeLayer(data.marker);
+        markers.delete(activeMarker);
+        activeMarker = null;
+    }
 })
 
-document.querySelector('#submit').addEventListener('click', function() {
+document.querySelector('#create').addEventListener('click', function(event) {
+    event.preventDefault();
     panel.style.display = 'none';
+    
+    const data = markers.get(activeMarker);
+
+    data.name = document.querySelector('#marker-name').value;
+    data.grade = document.querySelector('#marker-grade').value;
+    data.description = document.querySelector('#marker-description').value;
+    console.log(data);
+    activeMarker = null;
+    document.querySelector('#marker-name').value = '';
+    document.querySelector('#marker-grade').value = '';
+    document.querySelector('#marker-description').value = '';
 })
+
+function openPanel(marker, id) {
+    activeMarker = id;
+    updatePanelPosition(marker.getLatLng());
+    panel.style.display = 'block';
+    const data = markers.get(id);
+    document.querySelector('#marker-name').value = data.name || '';
+    document.querySelector('#marker-grade').value = data.grade || '';
+    document.querySelector('#marker-description').value = data.description || '';
+}
+
+function attachMarkerEvents(marker, id) {
+    marker.on('click', function () {
+        openPanel(marker, id);
+    })
+}
+
+function updatePanelPosition(latlng) {
+    const point = map.latLngToContainerPoint(latlng);
+    const rect = map.getContainer().getBoundingClientRect();
+
+    const x = rect.left + point.x;
+    const y = rect.top + point.y;
+
+    panel.style.left = (x + 10) + 'px';
+    panel.style.top = (y + 10) + 'px';
+}
