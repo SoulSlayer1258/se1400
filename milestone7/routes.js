@@ -30,6 +30,14 @@ const hamburger = document.querySelector('#hamburger');
         const gallery = document.querySelector('#gallery');
         gallery.innerHTML = '';
 
+        if (data.length === 0) {
+            const empty = document.createElement('p');
+            empty.textContent = 'no routes yet, go create some!';
+            empty.id = 'empty-state';
+            gallery.appendChild(empty);
+            return;
+        }
+
         data.forEach(route => {
             const panel = document.createElement('div');
             panel.classList.add('route-panel');
