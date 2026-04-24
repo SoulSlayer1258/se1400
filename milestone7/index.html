@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Route Mapper Home</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 
 <body>
@@ -24,7 +25,6 @@
                 <a href="explore.html">Explore</a>
                 <a href="routes.html">Routes</a>
                 <a href="create.html">Create</a>
-                <a href="saved.html">Saved</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
             </nav>
@@ -32,7 +32,10 @@
 
     <section id="hero">
         <h2>Discovery Awaits</h2>
-        <input type="text" placeholder="Search For Your Next Destination">
+        <input id="search" type="search" placeholder="Search For Your Next Destination">
+        <div id="routes-panel" class="hidden">
+            
+        </div>
         <img src="assets/pexels-arthousestudio-6310418.jpg" alt="person climbing a rock wall" > 
         
     </section>
@@ -49,8 +52,8 @@
             <a href="create.html">Create</a>
             </div>
             <div>
-            <p>Save your Favorites</p>
-            <a href="saved.html">Saved</a>
+            <p>Explore some Routes</p>
+            <a href="routes.html">Routes</a>
             </div>
         </div>
     </main>
@@ -76,23 +79,6 @@
     <footer>
         <p>Elijah Feldbauer copyright 2026 Route Mapper</p>
     </footer>
-
-<script>
-    const hamburger = document.querySelector('#hamburger');
-    const mainNav = document.querySelector('#main-nav');
-    hamburger.addEventListener('click', function() {
-        mainNav.classList.toggle('open');
-        hamburger.classList.toggle('open');
-    });
-
-    const darkToggle = document.querySelector('#dark-toggle')
-    darkToggle.addEventListener('click', function() {
-        document.body.classList.toggle('dark');
-        darkToggle.textContent = document.body.classList.contains('dark')
-        ? 'Light'
-        : 'dark';
-    });
-</script>
 
 
 </body>

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Route Mapper Routes</title>
     <link rel="stylesheet" href="routes.css">
+    <script defer src="routes.js"></script>
 </head>
 
 <body>
@@ -23,30 +24,23 @@
                 <a href="explore.html">Explore</a>
                 <a href="routes.html">Routes</a>
                 <a href="create.html">Create</a>
-                <a href="saved.html">Saved</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
             </nav>
     </header>
 
+    <input type="search" id="search" placeholder="Search for routes...">
+
+    <div id="selection">
+        <button id="namebtn">Name</button>
+        <button id="gradebtn">Grade</button>
+        <button id="descriptionbtn">Description</button>
+        <button id="savebtn">Save</button>
+    </div>
+    <div id="gallery"></div>
+
     <footer>
         <p>Elijah Feldbauer copyright 2026 Route Mapper</p>
     </footer>
 
-    <script>
-    const hamburger = document.querySelector('#hamburger');
-    const mainNav = document.querySelector('#main-nav');
-    hamburger.addEventListener('click', function() {
-        mainNav.classList.toggle('open');
-        hamburger.classList.toggle('open');
-    });
-
-    const darkToggle = document.querySelector('#dark-toggle')
-    darkToggle.addEventListener('click', function() {
-        document.body.classList.toggle('dark');
-        darkToggle.textContent = document.body.classList.contains('dark')
-        ? 'Light'
-        : 'dark';
-    });
-</script>
 </body>
