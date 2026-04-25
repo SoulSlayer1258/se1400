@@ -100,6 +100,9 @@ bottom: 0;
     background-color: white;
     border-radius: 15px;
     padding: .5rem;
+    background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)), url('assets/pexels-riccardo-vespa-594469796-28751638.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 #help-panel p {
@@ -225,6 +228,7 @@ body.dark {
         color: #f0f0f0;
         background-color: #1a1a1a;
         border: 1px solid white;
+        background-image: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url('assets/pexels-riccardo-vespa-594469796-28751638.jpg');
     }
 
     body.dark #help-toggle {

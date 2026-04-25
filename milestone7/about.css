@@ -1,8 +1,13 @@
 body {
     display: grid;
     grid-template-columns: minmax(0px, 1fr) repeat(6, minmax(0, 175px)) minmax(0px, 1fr);
+    grid-template-rows: auto 1fr auto;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)), url('assets/pexels-ktccphotography-17737488.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 header {
@@ -36,6 +41,7 @@ flex-direction: column;
 
 
 footer {
+max-height: 50px;
 background-color: #AFA76C;
 grid-column: 1 / -1;
 text-align: center;
@@ -147,6 +153,7 @@ font-size: .75rem;
 body.dark {
         background-color: #1a1a1a;
         color: #f0f0f0;
+        background-image: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url('assets/pexels-ktccphotography-17737488.jpg');
     }
 
     body.dark header h1 {

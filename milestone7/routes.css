@@ -3,6 +3,9 @@ body {
     grid-template-columns: minmax(0px, 1fr) repeat(6, minmax(0, 175px)) minmax(0px, 1fr);
     margin: 0;
     padding: 0;
+    background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)), url('assets/pexels-sessizlik-8199459.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 header {
@@ -187,6 +190,7 @@ text-align: center;
 body.dark {
         background-color: #1a1a1a;
         color: #f0f0f0;
+        background-image: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url('assets/pexels-sessizlik-8199459.jpg');
     }
 
     body.dark header h1 {
