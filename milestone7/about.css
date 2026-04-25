@@ -32,6 +32,7 @@ nav {
 }
 
 main {
+font-size: 1.5rem;
 grid-column: 2 / -2;
 display: flex;
 align-items: center;
@@ -132,6 +133,9 @@ font-size: .75rem;
         background-color: #1a1a1a;
     }
 
+    main {
+        font-size: 1.25rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -146,6 +150,10 @@ font-size: .75rem;
     nav {
         font-size: 1rem;
         padding: .75rem 1.5rem;
+    }
+
+    main {
+        font-size: 1rem;
     }
 
 }
