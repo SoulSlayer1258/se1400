@@ -85,8 +85,6 @@
 
     </form>
 
-    <div id="form-feedback" class="form-feedback" hidden></div>
-
     <section>
         <p>Some specific examples of what to write about could include topics such as routes being outdated or missing, a feature that you would like to see implemented, or maybe you would like a description to be changed and updated. Even small things can go a long way in helping to improve Route Mapper.</p>
         <p>Feedback is always appreciated and is important for helping the site grow. It is because of great users like you that the site is able to improve and become better and more available for more people so everyone can come and enjoy the wonders of rock climbing.</p>
@@ -123,6 +121,7 @@
                 var email = document.querySelector('#email').value;
                     formFeedback.textContent = `your feedback has been sent ${firstName}! Your feedback will help improve Route Mapper.`;
                     formFeedback.hidden = false;
+                    form.reset();
             });
 </script>
 </body>
