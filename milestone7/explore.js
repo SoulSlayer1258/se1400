@@ -34,9 +34,6 @@ document.querySelector('#panel-close').addEventListener('click', function() {
 )
 
 function openPanel(marker, id) {
-    console.log('openPanel called with id:', id);
-    console.log('markers Map contents:', [...markers.entries()]);
-    console.log('data found:', markers.get(id));
     activeMarker = id;
     updatePanelPosition(marker.getLatLng());
     panel.style.display = 'block';
