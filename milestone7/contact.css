@@ -47,10 +47,15 @@ align-items: center;
 flex-direction: column;
 }
 
+.form-group input {
+    margin-top: 1px;
+}
+
 footer {
 background-color: #AFA76C;
 grid-column: 1 / -1;
 text-align: center;
+font-size: .75rem;
 }
 
 #hamburger {
@@ -175,10 +180,37 @@ body.dark {
     body.dark #dark-toggle {
         color: #f0f0f0;
         background-color: #1a1a1a;
+        border: 1px solid white;
     }
 
     body.dark #hamburger span{
         background-color: #f0f0f0;
+    }
+
+    body.dark #submit {
+        color: #f0f0f0;
+        background-color: #1a1a1a;
+        border: 1px solid white;
+    }
+
+    body.dark .form-group input {
+        color: #f0f0f0;
+        background-color: #1a1a1a;
+        border: 1px solid white;
+    }
+
+    body.dark .form-group input::placeholder {
+        color: #f0f0f0;
+    }
+
+    body.dark #feedback {
+        color: #f0f0f0;
+        background-color: #1a1a1a;
+        border: 1px solid white;
+    }
+
+    body.dark #feedback::placeholder {
+        color: #f0f0f0;
     }
 
     @media (prefers-reduced-motion: reduce) {

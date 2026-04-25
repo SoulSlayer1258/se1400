@@ -30,6 +30,7 @@ nav {
 
 
 footer {
+font-size: .75rem;
 background-color: #AFA76C;
 grid-column: 1 / -1;
 text-align: center;
@@ -128,6 +129,14 @@ bottom: 0;
     background-color: #ADD8E6;
 }
 
+input {
+    margin-top: 1px;
+}
+
+textarea {
+    margin-top: 1px;
+}
+
 
 @media (max-width: 992px) {
     body {
@@ -188,6 +197,10 @@ bottom: 0;
         padding: .75rem 1.5rem;
     }
 
+    footer {
+        font-size: .7rem;
+        max-width: 20%;
+    }
 }
 
 body.dark {
@@ -206,36 +219,43 @@ body.dark {
     body.dark #dark-toggle {
         color: #f0f0f0;
         background-color: #1a1a1a;
+        border: 1px solid white;
     }
 
     body.dark #marker-panel {
         color: #f0f0f0;
         background-color: #1a1a1a;
+        border: 1px solid white;
     }
 
     body.dark #help-panel {
         color: #f0f0f0;
         background-color: #1a1a1a;
+        border: 1px solid white;
     }
 
     body.dark #help-toggle {
         color: #f0f0f0;
         background-color: #1a1a1a;
+        border: 1px solid white;
     }
 
     body.dark #panel-close {
         color: #f0f0f0;
         background-color: #1a1a1a;
+        border: 1px solid white;
     }
 
     body.dark #delete {
         color: #f0f0f0;
         background-color: #1a1a1a;
+        border: 1px solid white;
     }
 
     body.dark #save {
         color: #f0f0f0;
         background-color: #1a1a1a;
+        border: 1px solid white;
     }
 
     body.dark #save.true {
@@ -246,6 +266,23 @@ body.dark {
     body.dark #create {
         color: #f0f0f0;
         background-color: #1a1a1a;
+        border: 1px solid white;
+    }
+
+    body.dark  input {
+        color: #f0f0f0;
+        background-color: #1a1a1a;
+        border: 1px solid white;
+    }
+
+    body.dark input::placeholder {
+        color: #f0f0f0;
+    }
+
+    body.dark textarea {
+        color: #f0f0f0;
+        background-color: #1a1a1a;
+        border: 1px solid white;
     }
     @media (prefers-reduced-motion: reduce) {
     nav {

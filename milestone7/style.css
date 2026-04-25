@@ -123,6 +123,7 @@ flex-direction: column;
 }
 
 footer {
+font-size: .75rem;
 background-color: #AFA76C;
 grid-column: 1 / -1;
 text-align: center;
@@ -323,10 +324,12 @@ text-align: center;
     body.dark #dark-toggle {
         color: #f0f0f0;
         background-color: #1a1a1a;
+        border: 1px solid white;
     }
 
     body.dark #hero input {
         background-color: #1a1a1a;
+        border: 1px solid white;
     }
 
     body.dark #hero input::placeholder {

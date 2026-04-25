@@ -46,7 +46,7 @@
                         <label for="last-name">Last Name</label>
                         <input type="text" id="last-name" name="last-name"
                                autocomplete="family-name"
-                               required>
+                               required aria-required="true">
                                
                     </div>
 
@@ -55,7 +55,7 @@
                         <input type="email" id="email" name="email"
                                autocomplete="email"
                                placeholder="you@example.com"
-                               required>
+                               required aria-required="true">
                     </div>
 
                     <div class="form-group">
@@ -65,21 +65,22 @@
                                placeholder="999-999-9999"
                                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                                title="Format: 999-999-9999"
-                               required>
+                               required aria-required="true">
                     </div>
         </fieldset>
         <fieldset>
             <legend>Write your Feedback here</legend>
                 <div class="form-group">
+                    <label for="feedback">Your Feedback</label>
                     <textarea id="feedback" name="feedback" rows="5"
                               placeholder="Tell us what we can do better, report an issue, or just share your thoughts"
-                              aria-describedby="feedback-hint" required></textarea>
+                              aria-describedby="feedback-hint" required aria-required="true"></textarea>
                     <p id="feedback-hint">Mention anything about the website such as functionality or visuals. Also mention anything you would like to see added or changed as well as anything you think we are already doing really well.</p>
                 </div>
 
                 <div id="form-feedback" class="form-feedback" hidden></div>
 
-                <button type="submit">Submit Application</button>
+                <button id="submit" type="submit">Submit Application</button>
                 </fieldset>
 
     </form>

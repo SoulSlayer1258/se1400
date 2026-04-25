@@ -71,6 +71,7 @@ nav {
 }
 
 footer {
+font-size: .75rem;
 background-color: #AFA76C;
 grid-column: 1 / -1;
 text-align: center;
@@ -199,6 +200,7 @@ body.dark {
     body.dark #dark-toggle {
         color: #f0f0f0;
         background-color: #1a1a1a;
+        border: 1px solid white;
     }
 
     body.dark #hamburger span{
@@ -208,26 +210,30 @@ body.dark {
     body.dark #namebtn {
         color: #f0f0f0;
         background-color: #1a1a1a;
+        border: 1px solid white;
     }
 
     body.dark #gradebtn {
         color: #f0f0f0;
         background-color: #1a1a1a;
+        border: 1px solid white;
     }
 
     body.dark #descriptionbtn {
         color: #f0f0f0;
         background-color: #1a1a1a;
+        border: 1px solid white;
     }
 
     body.dark #savebtn{
         color: #f0f0f0;
         background-color: #1a1a1a;
+        border: 1px solid white;
     }
 
     body.dark #search {
         background-color: #1a1a1a;
-        border: 2px solid white;
+        border: 1px solid white;
     }
 
     body.dark #search::placeholder {
