@@ -34,11 +34,17 @@ document.querySelector('#panel-close').addEventListener('click', function() {
 )
 
 function openPanel(marker, id) {
+    console.log('openPanel called with id:', id);
+    console.log('markers Map contents:', [...markers.entries()]);
+    console.log('data found:', markers.get(id));
     activeMarker = id;
     updatePanelPosition(marker.getLatLng());
     panel.style.display = 'block';
     const data = markers.get(id);
     document.querySelector('#save').classList.toggle('true', data.saved);
+    document.querySelector('#marker-name').textContent = `Name: ${data.name}`
+    document.querySelector('#marker-grade').textContent = `Grade: ${data.grade}`
+    document.querySelector('#marker-description').textContent = `Description: ${data.description}`
 }
 
 function attachMarkerEvents(marker, id) {
@@ -102,10 +108,4 @@ loadMarkers(map, markers);
 
 document.querySelector('#help-toggle').addEventListener('click', function() {
     document.querySelector('#help-panel').classList.toggle('hidden');
-})
-const storedMarkers = JSON.parse(localStorage.getItem('markers'));
-storedMarkers.forEach(m => {
-document.querySelector('#marker-name').textContent = `Name: ${m.name}`
-document.querySelector('#marker-grade').textContent = `Grade: ${m.grade}`
-document.querySelector('#marker-description').textContent = `Description: ${m.description}`
 });
